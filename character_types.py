@@ -2,42 +2,69 @@
 #unique character skills
 
 class Warrior:
-    def __init__(self):
+    def __init__(self, power, armor):
+        self.__power = power
+        self.__armor = armor
+
+    def basic_attack(self):
         pass
+
+    def power(self):
+        self.__power
+
+    def armor(self):
+        self.__armor
     
-    def attack(self):
+    def unique_ability(self):
         pass
-
-    def health(self):
-        pass
-
 
 class Mage:
-    def __init__(self):
-        pass
-    
-    def attack(self):
+    def __init__(self, power, armor):
+        self.__power = power
+        self.__armor = armor
+
+    def basic_attack(self):
         pass
 
-    def health(self):
+    def power(self):
+        pass
+
+    def armor(self):
+        pass
+    
+    def unique_ability(self):
         pass
 
 class Marksman:
-    def __init__(self):
+    def __init__(self, power, armor):
+        self.__power = power
+        self.__armor = armor
+
+    def basic_attack(self):
         pass
 
-    def attack(self):
+    def power(self):
         pass
 
-    def health(self):
+    def armor(self):
+        pass
+
+    def unique_ability(self):
         pass
 
 class Assassin:
-    def __init__(self):
+    def __init__(self, power, armor):
+        self.__power = power
+        self.__armor = armor
+
+    def basic_attack(self):
         pass
 
-    def attack(self):
+    def power(self):
         pass
 
-    def health(self):
+    def armor(self):
+        pass
+
+    def unique_ability(self):
         pass

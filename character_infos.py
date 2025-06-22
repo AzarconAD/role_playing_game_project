@@ -1,12 +1,19 @@
 #custom character details
 class Character:
-    def __init__(self):
-        pass
+    def __init__(self, name, health, character_type):
+        self.__name = name
+        self.__health = health
+        self.__char_type= character_type
+
+
     def get_name(self):
-        pass
+        return self.__name
+
     def get_character_type(self):
-        pass
+        return self.__char_type
+
     def is_alive(self):
-        pass
+        return self.__health > 0
+
     def get_health(self):
-        pass
+        return self.__health
