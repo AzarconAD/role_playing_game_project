@@ -28,3 +28,15 @@ class Marksman(CharacterInfos):
 
     def marksman_title(self):
         return self.__title
+    
+class Tank(CharacterInfos):
+    def __init__(self):
+        super().__init__(health=100)
+        self.__title = "Indestructable Tank"
+
+    def power_up(self):
+        self.health_regen = 200
+        self.__health += self.health_regen
+
+    def tank_title(self):
+        return self.__title
