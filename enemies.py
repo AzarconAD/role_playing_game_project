@@ -1,8 +1,8 @@
-class Enemy:
+from character_types import CharacterInfos
+
+class Enemy(CharacterInfos):
     def __init__(self, health=100, armor=20, basic_attack=10):
-        self.__health = health
-        self.__armor = armor
-        self.__basic_attack = basic_attack
+        super().__init__(health, armor, basic_attack)
 
 class Minion(Enemy):
     def __init__(self):

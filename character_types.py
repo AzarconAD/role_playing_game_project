@@ -1,9 +1,28 @@
-class CharacterInfos:
-    def __init__(self, health=100, armor=20, basic_attack=10, title=""):
+from player_infos import PlayerInfos
+
+class CharacterInfos(PlayerInfos):
+    def __init__(self, health=100, armor=20, basic_attack=10, title="", name="", character_type=""):
+        super().__init__(name, character_type)
         self.__health = health
         self.__armor = armor
         self.__basic_attack = basic_attack
         self.__title = title
+        self.name = name
+        self.char_type = character_type
+
+    def is_alive(self):
+        return self.__health > 0
+    
+    def status(self):
+        print(f"{self.name} |Health: {self.__health}")
+
+    def take_damage(self, amount):
+        self.__health = max(0, self.__health - amount)
+
+    def attack(self, enemy):
+        damage = self.__basic_attack
+        print(f"{self.name} attacks for {damage} damage.")
+        enemy.take_damage(damage)
 
 class Warrior(CharacterInfos):
     def __init__(self):
@@ -12,7 +31,7 @@ class Warrior(CharacterInfos):
 
     def power_up(self):
         self.iron_shield_bonus = 30
-        self.armor += self.iron_shield_bonus
+        self.__armor += self.iron_shield_bonus
 
     def warrior_title(self):
         return self.__title

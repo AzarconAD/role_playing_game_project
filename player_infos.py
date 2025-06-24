@@ -1,6 +1,7 @@
 class PlayerInfos:
-    def __init__(self):
-        pass
+    def __init__(self, name, character_type):
+        self.name = name
+        self.char_type = character_type
 
     def set_name(self, name):
         self.name = name
