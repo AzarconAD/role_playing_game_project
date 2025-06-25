@@ -82,6 +82,36 @@ def main():
         player.name = name
         player.char_type = title
 
+        while True:
+            print("\nWhat would you like to do next?")
+            print("1. Play Battle")
+            print("2. Use Skill / Magic")
+            print("3. Save Game")
+            print("4. Exit")
+            next_choice = input("Enter choice: ")
+
+            if next_choice == "1":
+                game = Game(player)
+                game.play()
+            elif next_choice == "2":
+                if isinstance(player, Warrior):
+                    player.power_up()
+                    print("Iron Shield activated! Your armor increased.")
+                elif isinstance(player, Marksman):
+                    player.power_up()
+                    print("Critical Shot activated! Your basic attack increased.")
+                elif isinstance(player, Tank):
+                    player.power_up()
+                    print("Rage Heal activated! Your health increased.")
+            elif next_choice == "3":
+                save_progress(player)
+                print("Game progress saved!")
+            elif next_choice == "4":
+                print("Exiting game. Goodbye!")
+                break
+            else:
+                print("Invalid option. Try again.")
+
     print(f"Hero's name: {player_infos.set_name(name)}")
     print(f"Your character is the {player_infos.set_char_type(character_type=title)}!")
 
