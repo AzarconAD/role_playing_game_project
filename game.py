@@ -4,10 +4,8 @@ from character_types import CharacterInfos
 
 class Game:
     def __init__(self, player):
-        player = CharacterInfos()
         self.player = player
-        enemy = Minion()
-        self.enemy = enemy
+        self.enemy = Minion()
 
     def play(self):
         print("Battle Start!")

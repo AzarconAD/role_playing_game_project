@@ -1,8 +1,18 @@
 from player_infos import PlayerInfos
-from character_types import Warrior
-from character_types import Marksman
-from character_types import Tank
+from character_types import Warrior, Marksman, Tank
 from game import Game
+import json
+
+def save_progress(player):
+    data = {
+        "name": player.name,
+        "char_type": player.char_type,
+        "health": player._CharacterInfos__health,
+        "armor": player._CharacterInfos__armor,
+        "basic_attack": player._CharacterInfos__basic_attack
+    }
+    with open("save_file.json", "w") as file:
+        json.dump(data, file)
 
 def main():
     name = input("Please enter your hero's name: ")
