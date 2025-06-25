@@ -31,7 +31,7 @@ class Warrior(CharacterInfos):
 
     def power_up(self):
         self.iron_shield_bonus = 30
-        self.__armor += self.iron_shield_bonus
+        self._CharacterInfos__armor += self.iron_shield_bonus
 
     def warrior_title(self):
         return self.__title
@@ -43,7 +43,7 @@ class Marksman(CharacterInfos):
 
     def power_up(self):
         self.enhanced_basic_attack = 20
-        self.__basic_attack += self.enhanced_basic_attack
+        self._CharacterInfos__basic_attack += self.enhanced_basic_attack
 
     def marksman_title(self):
         return self.__title
@@ -55,7 +55,7 @@ class Tank(CharacterInfos):
 
     def power_up(self):
         self.health_regen = 200
-        self.__health += self.health_regen
+        self._CharacterInfos__health += self.health_regen
 
     def tank_title(self):
         return self.__title

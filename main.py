@@ -112,9 +112,6 @@ def main():
             else:
                 print("Invalid option. Try again.")
 
-    print(f"Hero's name: {player_infos.set_name(name)}")
-    print(f"Your character is the {player_infos.set_char_type(character_type=title)}!")
-
     game = Game(player)
     game.play()
 
