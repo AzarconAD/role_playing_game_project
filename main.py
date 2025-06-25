@@ -41,31 +41,46 @@ def load_progress():
         return None
 
 def main():
-    name = input("Please enter your hero's name: ")
-    player_infos = PlayerInfos(name, character_type="")
-    player_infos.set_name(name)
+    print("Welcome to the RPG Battle Game!")
+    print("1. New Game")
+    print("2. Load Game")
+    choice = input("Enter your choice: ")
 
-    print("Choose your character type.")
-    print("Choice 1: Warrior")
-    print("Choice 2: Marksman")
-    print("Choice 3: Tank")
-
-    chosen_character = int(input("Your choice (1-3): "))
-
-    if chosen_character == 1:
-        player = Warrior()
-        title = player.warrior_title()
-        player_infos.set_char_type(title)
-
-    elif chosen_character == 2:
-        player = Marksman()
-        title = player.marksman_title()
-        player_infos.set_char_type(character_type=title)
+    if choice == "2":
+        player = load_progress()
+        if player is None:
+                return
     
-    elif chosen_character == 3:
-        player = Tank()
-        title = player.tank_title()
-        player_infos.set_char_type(character_type=title)
+    else:
+        name = input("Please enter your hero's name: ")
+        player_infos = PlayerInfos(name, character_type="")
+        player_infos.set_name(name)
+
+        print("Choose your character type.")
+        print("Choice 1: Warrior")
+        print("Choice 2: Marksman")
+        print("Choice 3: Tank")
+
+        chosen_character = int(input("Your choice (1-3): "))
+
+        if chosen_character == 1:
+            player = Warrior()
+            title = player.warrior_title()
+
+        elif chosen_character == 2:
+            player = Marksman()
+            title = player.marksman_title()
+        
+        elif chosen_character == 3:
+            player = Tank()
+            title = player.tank_title()
+        else:
+            print("Invalid choice. Defaulting to Warrior.")
+            player = Warrior()
+            title = player.warrior_title()
+
+        player.name = name
+        player.char_type = title
 
     print(f"Hero's name: {player_infos.set_name(name)}")
     print(f"Your character is the {player_infos.set_char_type(character_type=title)}!")
