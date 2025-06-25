@@ -14,6 +14,32 @@ def save_progress(player):
     with open("save_file.json", "w") as file:
         json.dump(data, file)
 
+def load_progress():
+    try:
+        with open("save_file.json", "r") as file:
+            data = json.load(file)
+
+        if data["char_type"] == "Mighty Warrior":
+            player = Warrior()
+        elif data["char_type"] == "Skilled Marksman":
+            player = Marksman()
+        elif data["char_type"] == "Indestructable Tank":
+            player = Tank()
+        else:
+            player = Warrior()
+
+        player.name = data["name"]
+        player.char_type = data["char_type"]
+        player._CharacterInfos__health = data["health"]
+        player._CharacterInfos__armor = data["armor"]
+        player._CharacterInfos__basic_attack = data["basic_attack"]
+
+        return player
+    
+    except FileNotFoundError:
+        print("No saved game found.")
+        return None
+
 def main():
     name = input("Please enter your hero's name: ")
     player_infos = PlayerInfos(name, character_type="")
