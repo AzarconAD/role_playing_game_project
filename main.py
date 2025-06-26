@@ -82,6 +82,9 @@ def main():
         player.name = name
         player.char_type = title
 
+        game = Game(player)
+        game.play()
+
         while True:
             print("\nWhat would you like to do next?")
             print("1. Play Battle")
@@ -111,9 +114,6 @@ def main():
                 break
             else:
                 print("Invalid option. Try again.")
-
-    game = Game(player)
-    game.play()
 
 if __name__=="__main__":
     main()
